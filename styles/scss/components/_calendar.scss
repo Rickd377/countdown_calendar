@@ -1,0 +1,8 @@
+.calendar {
+  @include toRem(width, 1000);
+  @include toRem(height, 600);
+  @include toRem(border-radius, 15);
+  box-shadow: 5px 7px 15px rgba(map-get($colors, 'black'), .2);
+  display: flex;
+  overflow: hidden;
+}
