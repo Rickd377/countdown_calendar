@@ -1,8 +1,23 @@
 .calendar {
-  @include toRem(width, 1000);
-  @include toRem(height, 600);
-  @include toRem(border-radius, 15);
-  box-shadow: 5px 7px 15px rgba(map-get($colors, 'black'), .2);
+  width: 1000px;
+  height: 600px;
+  border-radius: 1rem;
+  box-shadow: 5px 7px 15px rgba(c.$black, .2);
   display: flex;
   overflow: hidden;
+}
+
+.add-event-background {
+  position: absolute;
+  inset: 0;
+  background: rgba(c.$black, .5);
+  @include flex;
+
+  .add-event-container {
+    width: 450px;
+    background: c.$white;
+    border-radius: 1rem;
+    padding: 20px;
+    @include flex(start, start, column);
+  }
 }

@@ -8,16 +8,16 @@ $test: 0;
 }
 
 .calendar .left-side {
-  background-color: map-get($colors, 'green');
+  background-color: c.$primary;
   flex: 1;
-  @include toRem(padding, 30);
-  @include toRem(gap, 20);
+  padding: 30px;
+  gap: 20px;
   @include flex(space-around, center, column);
-  color: map-get($colors, 'white');
+  color: c.$white;
 
   .date {
     @include flex(center, center, column);
-    font-family: map-get($fonts, 'Poppins');
+    font-family: f.$poppins;
 
     .day-num {
       font-size: 7rem;
@@ -34,22 +34,21 @@ $test: 0;
     flex: 1;
     width: 100%;
     @include flex(start, start, column);
-    @include toRem(gap, 10);
+    gap: 10px;
 
     .event {
-      background: map-get($colors, 'white');
-      color: map-get($colors, 'black');
+      background-color: c.$white;
+      color: c.$black;
       width: 100%;
       position: relative;
-      @include toRem(padding-left, 20);
-      @include toRem(padding-right, 10);
+      padding-inline: 20px 10px;
       overflow: hidden;
       border-radius: 3px;
       @include flex(space-between);
-      box-shadow: 2px 4px 5px rgba(map-get($colors, 'black'), .1);
+      box-shadow: 2px 4px 5px rgba(c.$black, .1);
 
       .label {
-        background-color: map-get($colors, 'light-green');
+        background-color: c.$secondary;
         width: 5px;
         height: 100%;
         position: absolute;
@@ -58,8 +57,8 @@ $test: 0;
 
       .event-wrapper {
         @include flex(center, start, column);
-        @include toRem(padding-block, 10);
-        @include toRem(gap, 5);
+        padding-block: 10px;
+        gap: 5px;
 
         .event-title {
           font-size: .8rem;
@@ -67,32 +66,28 @@ $test: 0;
 
         .event-date {
           font-size: .8rem;
-          color: map-get($colors, 'gray');
+          color: c.$gray;
         }
       }
 
       .time {
         font-size: .7rem;
-        color: map-get($colors, 'white');
-        background-color: map-get($colors, 'light-green');
+        color: c.$white;
+        background-color: c.$secondary;
         padding: 5px 10px;
         border-radius: 50px;
-        border: 2px solid map-get($colors, 'white');
-        box-shadow: 0 2px 3px rgba(map-get($colors, 'black'), .2);
-
-        @if (content == "10:00") {
-          background-color: map-get($colors, 'red') !important;
-        }
+        border: 2px solid c.$white;
+        box-shadow: 0 2px 3px rgba(c.$black, .2);
       }
     }
   }
 
   .add-event {
-    @include toRem(padding, 10);
+    padding: 10px;
     cursor: pointer;
     width: 100%;
     @include flex(space-between);
-    border-bottom: 1px solid map-get($colors, 'white');
+    border-bottom: 1px solid c.$white;
 
     i {
       font-size: 1.2rem;

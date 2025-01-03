@@ -1,42 +1,114 @@
 .calendar .right-side {
   flex: 2.5;
-  @include toRem(padding, 40);
+  padding: 40px;
   @include flex(space-between, end, column);
-  @include toRem(gap, 30);
 
   .header {
-    @include flex;
-    @include toRem(gap, 10);
-    font-size: 1.5rem;
-    font-weight: 700;
-
-    i {
+    .year-dropdown {
+      @include flex;
+      gap: 10px;
+      position: relative;
+      padding: 10px;
       cursor: pointer;
+      font-size: 1.2rem;
+
+      .year-dropdown-content {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        background: white;
+        box-shadow: 4px 5px 10px rgba(c.$black, .1);
+        display: none;
+        justify-content: space-evenly;
+        flex-direction: column;
+        height: 0;
+
+        &.show {
+          display: flex;
+          height: auto;
+        }
+
+        .active-year {
+          background-color: c.$primary;
+          color: c.$white;
+        }
+
+        .year-option {
+          cursor: pointer;
+          padding: 3px 5px;
+
+          &:hover {
+            background-color: c.$primary;
+            color: c.$white;
+          }
+        }
+      }
     }
   }
 
   .main-calendar {
     flex: 1;
     width: 100%;
+    @include flex(start, start, column);
+    gap: 20px;
     
     .months {
       @include flex(space-between);
-      padding: 20px;
-      border-bottom: 1px solid map-get($colors, 'gray');
-      color: map-get($colors, 'gray');
+      padding: 10px;
+      border-bottom: 1px solid c.$gray;
+      color: c.$gray;
+      width: 100%;
 
       .active-month {
-        color: map-get($colors, 'green');
+        color: c.$primary;
         font-weight: 700;
       }
     }
 
     .week-days {
-      @include flex(space-between);
-      padding: 20px;
-      color: map-get($colors, 'gray');
-      font-weight: 700;
-      font-family: map-get($fonts, 'Poppins');
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      place-items: center;
+      padding-block: 10px;
+      color: c.$gray;
+      width: 100%;
+      gap: 30px;
+
+      font-weight: 800;
+      font-family: f.$poppins;
+
+      .active-day {
+        color: c.$primary;
+        font-weight: 700;
+      }
+    }
+
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      width: 100%;
+      gap: 30px;
+      // outline: 2px solid red;
+      flex: 1;
+
+      .day {
+        @include flex;
+        flex: 1;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+
+        &:not(.active-day):hover {
+          background-color: c.$light-gray;
+          box-shadow: 0 2px 3px rgba(c.$black, .2);
+        }
+
+        &.active-day {
+          background-color: c.$secondary;
+          outline: 2px solid c.$light-gray;
+          box-shadow: 0 4px 3px rgba(c.$black, .2);
+        }
+      }
     }
   }
 }

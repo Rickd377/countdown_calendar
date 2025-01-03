@@ -20,7 +20,7 @@ footer, header, nav, section, main {
 
 body {
   line-height: 1;
-  font-family: map-get($fonts, 'Roboto') + ', sans-serif';
+  font-family: f.$roboto;
   @include flex;
   min-height: 100dvh;
 }
@@ -50,5 +50,5 @@ input {
 }
 
 .link {
-  color: map-get($colors, 'link');
+  color: c.$link;
 }
